@@ -12,4 +12,10 @@ public class HomeController {
 	public String getIndex() {
 		return "index";
 	}
+	
+	@GetMapping
+	@RequestMapping("/details")
+	public String getDetails() {
+		return "details";
+	}
 }
