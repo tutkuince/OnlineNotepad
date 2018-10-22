@@ -32,14 +32,16 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String name, String surname, String email, String password) {
+	public User(String userName, String name, String surname, String email, String password) {
 		super();
+		this.userName = userName;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
 		this.createDate = new Date();
 	}
+
 
 	public Long getId() {
 		return id;
