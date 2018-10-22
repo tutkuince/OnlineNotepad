@@ -71,7 +71,7 @@ public class HibernateConfig implements TransactionManagementConfigurer {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(comboPooledDataSource());
-		bean.setPackagesToScan("com.muditasoft.onlinenotpad.model");
+		bean.setPackagesToScan("com.muditasoft.onlinenotepad.model");
 
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
