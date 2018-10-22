@@ -1,16 +1,19 @@
 package com.muditasoft.onlinenotepad.config;
 
 import java.beans.PropertyVetoException;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 public class HibernateConfig {
-
+	
 	private Logger logger = Logger.getLogger(getClass().getName());
 
 	@Bean(destroyMethod = "close")
@@ -40,5 +43,27 @@ public class HibernateConfig {
 		logger.info("url ==>>> " + url);
 
 		return dataSource;
+	}
+	
+	@Bean
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
+		bean.setDataSource(comboPooledDataSource());
+		bean.setPackagesToScan("com.muditasoft.onlinenotpad.model");
+		
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		
+		bean.setHibernateProperties(properties);
+		return bean;
+	}
+	
+	@Bean
+	public HibernateTransactionManager transactionManager() {
+		HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
+		hibernateTransactionManager.setSessionFactory(sessionFactory().getObject());
+		return hibernateTransactionManager;
 	}
 }
