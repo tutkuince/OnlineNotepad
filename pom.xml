@@ -22,10 +22,16 @@
 		<!-- failOnMissingWebXml -->
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 
-		<!-- Spring Framework Version -->
+		<!-- Version of Dependencies -->
 		<org.springframework-version>5.1.0.RELEASE</org.springframework-version>
-		<javax.servlet-api-version>4.0.1</javax.servlet-api-version>
-		<javax.servlet.jsp-api-version>2.3.3</javax.servlet.jsp-api-version>
+		<javax.servlet-version>4.0.1</javax.servlet-version>
+		<javax.servlet.jsp-version>2.3.3</javax.servlet.jsp-version>
+		<org.junit.jupiter-version>5.3.1</org.junit.jupiter-version>
+		<org.hibernate-version>5.3.6.Final</org.hibernate-version>
+		<mysql-connector-java-version>8.0.12</mysql-connector-java-version>
+		<com.fasterxml.jackson.core-version>2.9.7</com.fasterxml.jackson.core-version>
+		<org.aspectj-version>1.9.1</org.aspectj-version>
+		<javax.xml.bind-version>2.3.0</javax.xml.bind-version>
 	</properties>
 
 	<dependencies>
@@ -36,11 +42,25 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- Spring Transaction -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- Spring ORM -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>${javax.servlet-api-version}</version>
+			<version>${javax.servlet-version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -48,10 +68,66 @@
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>${javax.servlet.jsp-api-version}</version>
+			<version>${javax.servlet.jsp-version}</version>
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${org.junit.jupiter-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Hibernate Core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate-version}</version>
+		</dependency>
+
+		<!-- Hibernate c3p0 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${org.hibernate-version}</version>
+		</dependency>
+
+		<!-- MySQL Connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java-version}</version>
+		</dependency>
+
+		<!-- Jackson JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${com.fasterxml.jackson.core-version}</version>
+		</dependency>
+
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+
+		<!-- JAXB API -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${javax.xml.bind-version}</version>
+		</dependency>
 
 	</dependencies>
 </project>
