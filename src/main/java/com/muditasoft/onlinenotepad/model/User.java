@@ -13,7 +13,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	@Column(nullable = false)
 	private String userName;
@@ -41,11 +41,11 @@ public class User {
 		this.createDate = new Date();
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -124,7 +124,7 @@ public class User {
 	
 	@Override
 	public int hashCode() {
-		return 31 * this.getId();
+		return 31 * this.getId().hashCode();
 	}
 
 }
