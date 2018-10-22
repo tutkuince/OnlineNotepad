@@ -112,5 +112,19 @@ public class User {
 	public void setKey(String key) {
 		this.key = key;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(!User.class.isInstance(obj))
+			return false;
+		
+		final User user = (User) obj;
+		return user.getId() == this.getId();
+	}
+	
+	@Override
+	public int hashCode() {
+		return 31 * this.getId();
+	}
 
 }
