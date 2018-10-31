@@ -1,33 +1,40 @@
 package com.muditasoft.onlinenotepad.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "note")
 public class Note {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "title")
 	private String title;
 
-	@Column(length = 9999)
+	@Column(name = "content", length = 999999)
 	private String content;
-	private Date createDate;
 
-	private Long userId;
+	@Column(name = "note_date")
+	private LocalDate noteDate;
 
-	public Long getUserId() {
-		return userId;
-	}
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinColumn(name = "user_id")
+	private User user;
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public Note() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
@@ -54,12 +61,12 @@ public class Note {
 		this.content = content;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
+	public LocalDate getNoteDate() {
+		return noteDate;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setNoteDate(LocalDate noteDate) {
+		this.noteDate = noteDate;
 	}
 
 }
