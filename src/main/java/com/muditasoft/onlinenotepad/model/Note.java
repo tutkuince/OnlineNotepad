@@ -1,6 +1,6 @@
 package com.muditasoft.onlinenotepad.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,14 +27,14 @@ public class Note {
 	private String content;
 
 	@Column(name = "note_date")
-	private LocalDate noteDate;
+	private LocalDateTime noteDate;
 
 	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "user_id")
 	private User user;
 
 	public Note() {
-		// TODO Auto-generated constructor stub
+		noteDate = LocalDateTime.now();
 	}
 
 	public Long getId() {
@@ -61,11 +61,11 @@ public class Note {
 		this.content = content;
 	}
 
-	public LocalDate getNoteDate() {
+	public LocalDateTime getNoteDate() {
 		return noteDate;
 	}
 
-	public void setNoteDate(LocalDate noteDate) {
+	public void setNoteDate(LocalDateTime noteDate) {
 		this.noteDate = noteDate;
 	}
 
