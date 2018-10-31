@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,13 +85,19 @@
 	<div class="container-fluid">
 		<div class="row fh5co-post-entry">
 			<c:forEach items="${noteList }" var="note">
+			
+			<!-- Construct an "update" link with customerId -->
+				<c:url var="goDetails" value="/details">
+					<c:param name="noteId" value="${note.id }" />
+				</c:url>
+			
 				<article
 					class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 					<h2 class="fh5co-article-title">
-						<a href="details">${note.title }</a>
+						<a href="${goDetails }">${note.title }</a>
 					</h2>
 					<h3>
-						<a href="details" style="color: #999999">${note.content }</a>
+						<a href="${goDetails }" style="color: #999999">${note.content }</a>
 					</h3>
 					<span class="fh5co-meta fh5co-date">${note.noteDate }</span>
 				</article>
