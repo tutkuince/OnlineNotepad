@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.muditasoft.onlinenotepad.model.Note;
 import com.muditasoft.onlinenotepad.service.NoteService;
@@ -28,7 +29,12 @@ public class HomeController {
 	}
 	
 	@GetMapping("/details")
-	public String getDetails() {
+	public String getDetails(@RequestParam("noteId") Long id, Model model) {
+		// get note where noteId equals to id
+		Note note = noteService.getNoteById(id);
+		
+		// set note as a model attribute 
+		model.addAttribute("note", note);
 		return "details";
 	}
 	
