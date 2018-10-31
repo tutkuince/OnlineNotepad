@@ -74,9 +74,10 @@ public class HibernateConfig implements TransactionManagementConfigurer {
 		bean.setPackagesToScan("com.muditasoft.onlinenotepad.model");
 
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
+		properties.setProperty(org.hibernate.cfg.Environment.SHOW_SQL, "true");
+		properties.setProperty(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
+		properties.setProperty(org.hibernate.cfg.Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 		bean.setHibernateProperties(properties);
 		return bean;
