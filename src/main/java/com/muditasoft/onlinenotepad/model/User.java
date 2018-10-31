@@ -42,7 +42,7 @@ public class User {
 	private String keyCode;
 
 	public User() {
-		// TODO Auto-generated constructor stub
+		createDate = LocalDateTime.now();
 	}
 
 	public Long getId() {
