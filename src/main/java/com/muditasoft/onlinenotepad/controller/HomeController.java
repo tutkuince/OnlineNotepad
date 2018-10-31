@@ -8,15 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	
-	@GetMapping
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String getIndex() {
 		return "index";
 	}
 	
-	@GetMapping
-	@RequestMapping("/details")
+	@GetMapping("/details")
 	public String getDetails() {
 		return "details";
+	}
+	
+	@GetMapping("/addNote")
+	public String addNote() {
+		return "addNote";
 	}
 }
