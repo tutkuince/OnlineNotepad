@@ -1,5 +1,7 @@
 package com.muditasoft.onlinenotepad.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,11 @@ public class HomeController {
 	private NoteService noteService;
 	
 	@GetMapping("/")
-	public String getIndex() {
+	public String getIndex(Model model) {
+		List<Note> noteList = noteService.getAllNote();
+		
+		model.addAttribute("noteList", noteList);
+		
 		return "index";
 	}
 	
@@ -39,4 +45,5 @@ public class HomeController {
 		noteService.save(note);
 		return "redirect:/";	
 	}
+	
 }
