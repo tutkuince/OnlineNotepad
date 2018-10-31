@@ -65,7 +65,7 @@
 				<div class="row">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 					<ul class="fh5co-social">
-						<li><a href="#"><i class="">Add Note</i></a></li>
+						<li><a href="addNote"><i class="">Add Note</i></a></li>
 					</ul>
 					<div class="col-lg-12 col-md-12 text-center">
 						<h1 id="fh5co-logo">
