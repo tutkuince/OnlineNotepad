@@ -1,6 +1,6 @@
 package com.muditasoft.onlinenotepad.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +36,7 @@ public class User {
 	private boolean active;
 
 	@Column(name = "create_date")
-	private LocalDate createDate;
+	private LocalDateTime createDate;
 
 	@Column(name = "key_code")
 	private String keyCode;
@@ -101,11 +101,11 @@ public class User {
 		this.active = active;
 	}
 
-	public LocalDate getCreateDate() {
+	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(LocalDate createDate) {
+	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
 
