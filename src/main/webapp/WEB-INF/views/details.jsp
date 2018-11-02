@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,26 +84,29 @@
 			<article
 				class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
 
-				<h2 class="fh5co-article-title animate-box">
-					<a href="single.html">${note.title }</a>
-				</h2>
-				<span class="fh5co-meta fh5co-date animate-box">${note.noteDate }</span>
-
-				<div
-					class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
-					<div class="row">
-						<div class="col-lg-8 cp-r animate-box">
-							<textarea class="form form-control"
-								style="width: 100%; height: 500px;" disabled="disabled">${note.content }</textarea>
-						</div>
-						<div class="col-lg-4 animate-box">
-							<div class="fh5co-highlight right">
-								<h4>Summary</h4>
+				<form:form action="updateNote" method="POST" modelAttribute="note">
+					<h2 class="fh5co-article-title animate-box">
+						<form:input path="title" placeholder="${note.title }" />
+					</h2>
+					<span class="fh5co-meta fh5co-date animate-box">${note.noteDate }</span>
+					<form:hidden path="id"/>
+					<div
+						class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+						<div class="row">
+							<div class="col-lg-8 cp-r animate-box">
+								<form:textarea path="content" class="form form-control"
+									style="width: 100%; height: 500px;" />
+							</div>
+							<div class="col-lg-4 animate-box">
+								<div class="fh5co-highlight right">
+									<form:button class="btn btn-success" style="width: 100%;">Update</form:button>
+								</div>
 							</div>
 						</div>
 					</div>
 
-				</div>
+				</form:form>
+
 			</article>
 		</div>
 	</div>
