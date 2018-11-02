@@ -58,4 +58,15 @@ public class HomeController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/deleteNote")
+	public String deleteNote(@RequestParam("noteId") Long id) {
+		// get selected note 
+		Note note = noteService.getNoteById(id);
+		
+		// delete the note
+		noteService.delete(note);
+		
+		return "redirect:/";
+	}
+
 }
