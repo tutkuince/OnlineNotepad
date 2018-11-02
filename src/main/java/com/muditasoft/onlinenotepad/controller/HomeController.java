@@ -18,38 +18,44 @@ public class HomeController {
 
 	@Autowired
 	private NoteService noteService;
-	
+
 	@GetMapping("/")
 	public String getIndex(Model model) {
 		List<Note> noteList = noteService.getAllNote();
-		
+
 		model.addAttribute("noteList", noteList);
-		
+
 		return "index";
 	}
-	
+
 	@GetMapping("/details")
 	public String getDetails(@RequestParam("noteId") Long id, Model model) {
 		// get note where noteId equals to id
 		Note note = noteService.getNoteById(id);
-		
-		// set note as a model attribute 
+
+		// set note as a model attribute
 		model.addAttribute("note", note);
 		return "details";
 	}
-	
+
 	@GetMapping("/showAddNoteForm")
 	public String addNote(Model model) {
 		Note note = new Note();
-		
+
 		model.addAttribute("note", note);
 		return "addNote";
 	}
-	
+
 	@PostMapping("/saveNote")
 	public String saveNote(@ModelAttribute("note") Note note) {
 		noteService.save(note);
-		return "redirect:/";	
+		return "redirect:/";
 	}
-	
+
+	@PostMapping("/updateNote")
+	public String updateNote(@ModelAttribute("note") Note note) {
+		noteService.save(note);
+		return "redirect:/";
+	}
+
 }
