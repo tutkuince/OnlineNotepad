@@ -89,7 +89,7 @@
 						<form:input path="title" placeholder="${note.title }" />
 					</h2>
 					<span class="fh5co-meta fh5co-date animate-box">${note.noteDate }</span>
-					<form:hidden path="id"/>
+					<form:hidden path="id" />
 					<div
 						class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
 						<div class="row">
@@ -104,9 +104,15 @@
 							</div>
 						</div>
 					</div>
-
 				</form:form>
-
+				<div class="col-lg-4 animate-box">
+					<div class="fh5co-highlight right">
+						<a href="deleteNote?noteId=${note.id }">
+							<button class="btn btn-danger" style="width: 100%;"
+								onclick="if (!(confirm('Are you sure you want to delete this note?'))) return false">Delete</button>
+						</a>
+					</div>
+				</div>
 			</article>
 		</div>
 	</div>
