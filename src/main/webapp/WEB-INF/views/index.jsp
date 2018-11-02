@@ -86,7 +86,7 @@
 		<div class="row fh5co-post-entry">
 			<c:forEach items="${noteList }" var="note">
 			
-			<!-- Construct an "update" link with customerId -->
+			<!-- Construct an url link with noteId -->
 				<c:url var="goDetails" value="/details">
 					<c:param name="noteId" value="${note.id }" />
 				</c:url>
