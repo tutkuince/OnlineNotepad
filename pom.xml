@@ -32,6 +32,7 @@
 		<com.fasterxml.jackson.core-version>2.9.7</com.fasterxml.jackson.core-version>
 		<org.aspectj-version>1.9.1</org.aspectj-version>
 		<javax.xml.bind-version>2.3.0</javax.xml.bind-version>
+		<javax.mail-version>1.6.2</javax.mail-version>
 	</properties>
 
 	<dependencies>
@@ -48,7 +49,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- Spring Context Support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -87,6 +88,14 @@
 			<version>${org.junit.jupiter-version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Javax mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>${javax.mail-version}</version>
+		</dependency>
+
 
 		<!-- Hibernate Core -->
 		<dependency>
