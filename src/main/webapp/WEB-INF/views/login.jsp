@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Giriş</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -36,23 +36,23 @@
 			<div class="wrap-login100">
 				<div class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-						Not Alma
+						Online Notepad
 					</span>
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adı Girin">
+					<div class="wrap-input100 validate-input" data-validate = "Username">
 						<input class="input100" type="text" name="username" id="username">
-						<span class="focus-input100" data-placeholder="Kullanıcı Adı"></span>
+						<span class="focus-input100" data-placeholder="Username"></span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate="Parola Girin">
+					<div class="wrap-input100 validate-input" data-validate="Password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="pass" id="pass">
-						<span class="focus-input100" data-placeholder="Parola"></span>
+						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 					
 					
@@ -60,13 +60,13 @@
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" id="registerBtn">
-								Giriş
+								Login
 							</button>
 						</div>
 					</div>
 
 					<div class="text-center p-t-115">
-						<a href="#">Üye Ol</a>
+						<a href="signup">Sign Up</a>
 					</div>
 				</div>
 			</div>
