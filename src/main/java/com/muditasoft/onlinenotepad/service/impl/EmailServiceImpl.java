@@ -14,12 +14,13 @@ public class EmailServiceImpl implements EmailService {
 	private MailSender mailSender;
 
 	@Override
-	public void sendMail(String mail, String key) {
+	public void registerMail(String mail, String key) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom("online.notepad.tr@gmail.com");
 		message.setTo(mail);
 		message.setSubject("Activate your membership");
-		message.setText("Click the link for activate your membership on OnlineNotepad");
+		message.setText("Click the link for activate your membership on OnlineNotepad\n\n"
+				+ "http://localhost:8080/onlinenotepad/reg/" + key);
 		mailSender.send(message);
 	}
 
