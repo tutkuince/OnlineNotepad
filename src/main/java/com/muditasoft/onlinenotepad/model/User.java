@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user")
@@ -28,6 +29,9 @@ public class User {
 
 	@Column(name = "password", length = 55)
 	private String password;
+
+	@Transient
+	private String password2;
 
 	@Column(name = "email", length = 55, unique = true)
 	private String email;
@@ -115,6 +119,14 @@ public class User {
 
 	public void setKeyCode(String keyCode) {
 		this.keyCode = keyCode;
+	}
+
+	public String getPassword2() {
+		return password2;
+	}
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
 	}
 
 }
