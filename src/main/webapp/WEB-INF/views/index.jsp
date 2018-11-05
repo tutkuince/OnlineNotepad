@@ -87,7 +87,7 @@
 			<c:forEach items="${noteList }" var="note">
 			
 			<!-- Construct an url link with noteId -->
-				<c:url var="goDetails" value="/details">
+				<c:url var="goDetails" value="details">
 					<c:param name="noteId" value="${note.id }" />
 				</c:url>
 			
