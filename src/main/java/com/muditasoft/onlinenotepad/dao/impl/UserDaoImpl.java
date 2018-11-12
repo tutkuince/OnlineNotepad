@@ -40,4 +40,11 @@ public class UserDaoImpl implements UserDao {
 		sessionFactory.getCurrentSession().delete(user);
 	}
 
+	@Override
+	public User getUserByKeyCode(String keyCode) {
+		Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where keyCode=:keyCode", User.class);
+		query.setParameter("keyCode", keyCode);
+		return query.getSingleResult();
+	}
+
 }
