@@ -1,7 +1,10 @@
 package com.muditasoft.onlinenotepad.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.muditasoft.onlinenotepad.service.LoginService;
 
+@Service
 public class LoginServiceImpl implements LoginService {
 
 	@Override
