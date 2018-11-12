@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.muditasoft.onlinenotepad.model.Note;
+import com.muditasoft.onlinenotepad.model.User;
 import com.muditasoft.onlinenotepad.service.NoteService;
 
 @Controller
@@ -25,9 +26,10 @@ public class NoteController {
 
 	@GetMapping("/")
 	public String getNoteList(Model model, HttpServletRequest request) {
-		List<Note> noteList = noteService.getAllNote();
+		User user = (User) request.getSession().getAttribute("user");
+		model.addAttribute("user", user);
 		
-		model.addAttribute("user", request.getSession().getAttribute("user"));
+		List<Note> noteList = noteService.getNotesByUser(user);
 		model.addAttribute("noteList", noteList);
 
 		return "index";
