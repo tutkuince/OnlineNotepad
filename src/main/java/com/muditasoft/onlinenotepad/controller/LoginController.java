@@ -1,5 +1,7 @@
 package com.muditasoft.onlinenotepad.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +31,10 @@ public class LoginController {
 	}
 
 	@PostMapping("/login")
-	public String login(@ModelAttribute("user") User user, Model model) {
-		if (userService.getUserByUsernameAndPass(user) != null) {
+	public String login(@ModelAttribute("user") User user, Model model, HttpServletRequest request) {
+		User usr = userService.getUserByUsernameAndPass(user); 
+		if (usr != null) {
+			request.getSession().setAttribute("user", usr);
 			return "redirect:/notes/";
 		}
 		return "redirect:/showlogin";
