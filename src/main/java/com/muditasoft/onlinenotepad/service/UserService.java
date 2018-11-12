@@ -9,4 +9,5 @@ public interface UserService {
 	List<User> getAllUser();
 	User getUserById(Long id);
 	void delete(User user);
+	String keyGenerator();
 }
