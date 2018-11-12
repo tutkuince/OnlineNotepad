@@ -31,16 +31,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public List<User> getAllUser() {
 		return userDao.getAllUser();
 	}
 
 	@Override
+	@Transactional
 	public User getUserById(Long id) {
 		return userDao.getUserById(id);
 	}
 
 	@Override
+	@Transactional
 	public void delete(User user) {
 		userDao.delete(user);
 	}
@@ -48,6 +51,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String keyGenerator() {
 		return UUID.randomUUID().toString();
+	}
+
+	@Override
+	@Transactional
+	public User getUserByKeyCode(String keyCode) {
+		User user = userDao.getUserByKeyCode(keyCode);
+		user.setActive(true);
+		userDao.save(user);
+		return user;
 	}
 
 }
