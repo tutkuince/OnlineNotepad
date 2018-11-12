@@ -52,9 +52,7 @@
 			<h2>${user.name } ${user.surname }</h2>
 			
 			<ul class="fh5co-social">
-				<li><a href="#"><i class="icon-twitter"></i></a></li>
-				<li><a href="#"><i class="icon-facebook"></i></a></li>
-				<li><a href="#"><i class="icon-instagram"></i></a></li>
+				<li><a href="http://localhost:8080/onlinenotepad/logout">Log out</a></li>
 			</ul>
 		</div>
 
@@ -71,7 +69,7 @@
 				</ul>
 				<div class="col-lg-12 col-md-12 text-center">
 					<h1 id="fh5co-logo">
-						<a href="/onlinenotepad/">Online Notepad</a>
+						<a href="/onlinenotepad/notes/">Online Notepad</a>
 					</h1>
 				</div>
 
