@@ -49,9 +49,8 @@
 					alt="Free HTML5 Bootstrap Template" class="img-responsive">
 			</figure>
 			<h3 class="heading">About Me</h3>
-			<h2>Tutku Ince</h2>
-			<p>Hi! I am Tutku. I am a computer engineer and working as a java
-				developer.</p>
+			<h2>${user.name } ${user.surname }</h2>
+			
 			<ul class="fh5co-social">
 				<li><a href="#"><i class="icon-twitter"></i></a></li>
 				<li><a href="#"><i class="icon-facebook"></i></a></li>
