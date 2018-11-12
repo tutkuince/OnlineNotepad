@@ -76,14 +76,14 @@
 						<div class="wrap-input100 validate-input" data-validate="Password">
 							<span class="btn-show-pass"> <i class="zmdi zmdi-eye"></i>
 							</span>
-							<form:password path="password" class="input100" />
+							<form:password id="password" path="password" class="input100" />
 							<span class="focus-input100" data-placeholder="Password"></span>
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate="Password">
 							<span class="btn-show-pass"> <i class="zmdi zmdi-eye"></i>
 							</span>
-							<form:password path="password2" class="input100" />
+							<form:password id="cfmPassword" path="password2" class="input100" />
 							<span class="focus-input100" data-placeholder="Password"></span>
 						</div>
 
