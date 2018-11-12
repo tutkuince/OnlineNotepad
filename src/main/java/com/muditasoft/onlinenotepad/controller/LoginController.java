@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.muditasoft.onlinenotepad.model.User;
+import com.muditasoft.onlinenotepad.service.LoginService;
 import com.muditasoft.onlinenotepad.service.UserService;
 
 @Controller
 public class LoginController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private LoginService loginService;
 
 	@GetMapping("/")
 	public String showLoginPage() {
@@ -30,8 +34,8 @@ public class LoginController {
 	}
 
 	@PostMapping("/register")
-	public String register(@ModelAttribute("user") User user) {
-		if (user.getPassword().equals(user.getPassword2())) {
+	public String register(@ModelAttribute("user") User user, Model model) {
+		if(loginService.isValid(user.getPassword(), user.getPassword2())) {
 			userService.save(user);
 			return "redirect:/notes/";
 		} else {
