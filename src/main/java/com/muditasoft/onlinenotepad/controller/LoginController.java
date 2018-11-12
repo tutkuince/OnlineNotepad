@@ -22,13 +22,18 @@ public class LoginController {
 	private LoginService loginService;
 
 	@GetMapping("/showlogin")
-	public String showLoginPage(@RequestParam(value = "status", required = false) String status) {
+	public String showLoginPage(@RequestParam(value = "status", required = false) String status, Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
 		return "login";
 	}
-	
+
 	@PostMapping("/login")
 	public String login(@ModelAttribute("user") User user, Model model) {
-		return "redirect:/notes/";
+		if (userService.getUserByUsernameAndPass(user) != null) {
+			return "redirect:/notes/";
+		}
+		return "redirect:/showlogin";
 	}
 
 	@GetMapping("/signup")
