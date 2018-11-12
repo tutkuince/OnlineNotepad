@@ -22,6 +22,26 @@ public class LoginFilter implements HandlerInterceptor {
 			HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 			return;
 		}
+		if (request.getRequestURI().contains("signup")) {
+			HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+			return;
+		}
+		if (request.getRequestURI().contains("register")) {
+			HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+			return;
+		}
+		if (request.getRequestURI().contains("showlogin")) {
+			HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+			return;
+		}
+		if (request.getRequestURI().contains("logout")) {
+			HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+			return;
+		}
+		if (request.getRequestURI().contains("reg")) {
+			HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+			return;
+		}
 
 		User user = (User) request.getSession().getAttribute("user");
 		if (user != null) {
