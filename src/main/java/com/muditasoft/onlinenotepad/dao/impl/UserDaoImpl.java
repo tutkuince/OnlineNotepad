@@ -49,8 +49,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUserByUsernameAndPass(String userName, String password) {
-		Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where user_name=:userName and password=:keyCode", User.class);
-		query.setParameter("user_name", userName);
+		Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where userName=:userName and password=:password", User.class);
+		query.setParameter("userName", userName);
 		query.setParameter("password", password);
 		return query.getSingleResult();
 	}
