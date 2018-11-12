@@ -10,4 +10,5 @@ public interface UserDao {
 	List<User> getAllUser();
 	User getUserById(Long id);
 	void delete(User user);
+	User getUserByKeyCode(String keyCode);
 }
