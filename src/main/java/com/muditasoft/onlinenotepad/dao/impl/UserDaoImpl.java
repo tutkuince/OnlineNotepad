@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
 		Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where userName=:userName and password=:password", User.class);
 		query.setParameter("userName", userName);
 		query.setParameter("password", password);
-		return query.getSingleResult();
+		return query.uniqueResult();	// for null values
 	}
 
 }
