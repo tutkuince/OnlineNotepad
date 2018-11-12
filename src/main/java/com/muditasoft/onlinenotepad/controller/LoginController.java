@@ -39,6 +39,12 @@ public class LoginController {
 		}
 		return "redirect:/showlogin";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(Model model, HttpServletRequest req) {
+		req.getSession().setAttribute("user", null);
+		return "redirect:/showlogin";
+	}
 
 	@GetMapping("/signup")
 	public String showSignUpPage(Model model) {
@@ -53,7 +59,7 @@ public class LoginController {
 	public String register(@ModelAttribute("user") User user, Model model) {
 		if (loginService.isValid(user.getPassword(), user.getPassword2())) {
 			userService.save(user);
-			return "redirect:/notes/";
+			return "redirect:/showlogin";
 		} else {
 			return "redirect:/signup";
 		}
