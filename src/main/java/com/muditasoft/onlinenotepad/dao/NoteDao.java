@@ -12,4 +12,5 @@ public interface NoteDao {
 	void delete(Note note);
 	List<Note> getAllNote();
 	Note getNoteById(Long id);
+	List<Note> getNotesByUser(Long id);
 }
