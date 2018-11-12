@@ -47,7 +47,6 @@ public class User {
 
 	public User() {
 		createDate = LocalDateTime.now();
-		active = true;
 	}
 
 	public Long getId() {
