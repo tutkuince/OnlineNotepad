@@ -1,6 +1,7 @@
 package com.muditasoft.onlinenotepad.service.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -20,6 +21,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public void save(User user) {
+		user.setKeyCode(keyGenerator());
 		userDao.save(user);
 	}
 
@@ -36,6 +38,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void delete(User user) {
 		userDao.delete(user);
+	}
+
+	@Override
+	public String keyGenerator() {
+		return UUID.randomUUID().toString();
 	}
 
 }
