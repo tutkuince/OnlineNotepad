@@ -2,6 +2,8 @@ package com.muditasoft.onlinenotepad.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +24,10 @@ public class NoteController {
 	private NoteService noteService;
 
 	@GetMapping("/")
-	public String getNoteList(Model model) {
+	public String getNoteList(Model model, HttpServletRequest request) {
 		List<Note> noteList = noteService.getAllNote();
-
+		
+		model.addAttribute("user", request.getSession().getAttribute("user"));
 		model.addAttribute("noteList", noteList);
 
 		return "index";
