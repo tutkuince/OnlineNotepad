@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.muditasoft.onlinenotepad.dao.UserDao;
 import com.muditasoft.onlinenotepad.model.User;
+import com.muditasoft.onlinenotepad.service.EmailService;
 import com.muditasoft.onlinenotepad.service.UserService;
 
 @Service
@@ -18,11 +19,15 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 	
+	@Autowired
+	private EmailService emailService;
+	
 	@Override
 	@Transactional
 	public void save(User user) {
 		user.setKeyCode(keyGenerator());
 		userDao.save(user);
+		emailService.registerMail(user.getEmail(), user.getKeyCode());
 	}
 
 	@Override
