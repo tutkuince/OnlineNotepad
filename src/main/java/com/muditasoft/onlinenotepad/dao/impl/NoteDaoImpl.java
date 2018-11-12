@@ -40,4 +40,11 @@ public class NoteDaoImpl implements NoteDao {
 		return sessionFactory.getCurrentSession().get(Note.class, id);
 	}
 
+	@Override
+	public List<Note> getNotesByUser(Long userId) {
+		Query<Note> query = sessionFactory.getCurrentSession().createQuery("from Note where user_id=:userId", Note.class);
+		query.setParameter("userId", userId);
+		return query.getResultList();
+	}
+
 }
