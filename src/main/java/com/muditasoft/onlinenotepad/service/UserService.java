@@ -11,4 +11,5 @@ public interface UserService {
 	void delete(User user);
 	String keyGenerator();
 	User getUserByKeyCode(String keyCode);
+	User getUserByUsernameAndPass(String userName, String password);
 }
